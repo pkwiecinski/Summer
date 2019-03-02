@@ -1,10 +1,12 @@
 package pl.teb.edukacja.summerproject;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-@RestController
+@Controller
 
 public class GreetingController {
 
@@ -13,8 +15,8 @@ public class GreetingController {
 
 
     @GetMapping("/greeting")
-    public Greeting greeting(@RequestParam(value = "name", defaultValue = "Hello")
-                                     String name) {
-        return new Greeting(counter.incrementAndGet(), String.format(template,name));
+    public String greeting(Model model) {
+        model.addAttribute("greeting", new Greeting());
+        return "greeting";
     }
 }
