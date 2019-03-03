@@ -6,8 +6,18 @@
 </head>
 <body bgcolor="black">
 <font color="white"><center><h1>Przywitanie</h1></center><br><br>
-<center><b>Hello!</b></center></font>
+<center><b>Hello!</b></center>
 
+    <h1>Form</h1>
+    <form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
+        <p>Id: <input type="text" th:field="*{id}" /></p>
+        <p>Message: <input type="text" th:field="*{content}" /></p>
+        <p>
+            <input type="submit" value="Submit" />
+            <input type="reset" value="Reset" />
+        </p>
+    </form>
 
+</font>
 </body>
 </html>
